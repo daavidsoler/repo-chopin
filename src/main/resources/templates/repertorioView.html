@@ -17,7 +17,22 @@
         </ul>
     </header>
 
-    <h1>Obras destacadas de Chopin</h1>
+    <h1>Chopin's Repertoire</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Composer</th>
+            <th>Year</th>
+            <th>Instrumentation</th>
+        </tr>
+        <tr th:each="piece : ${pieces}" th:classappend="${piece.instrumentation == 'Solo piano'} ? 'solo' : 'concert'">
+            <td th:text="${piece.title}">Title</td>
+            <td th:text="${piece.composer}">Composer</td>
+            <td th:text="${piece.year}">Year</td>
+            <td th:text="${piece.instrumentation} ?: 'Unknown'">Instrumentation</td>
+        </tr>
+    </table>
+
 
     <h2>1. Nocturne in E-flat major, Op. 9 No. 2</h2>
     <p>One of the most beloved songs of Chopin</p>
